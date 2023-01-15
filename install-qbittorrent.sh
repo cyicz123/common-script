@@ -6,6 +6,8 @@ if ! type wget >/dev/null 2>&1; then
     exit 1
 fi
 wget -qO- https://raw.githubusercontent.com/cyicz123/common-script/main/install-docker.sh | bash
+# Enable bbr
+wget -qO- https://raw.githubusercontent.com/cyicz123/common-script/main/bbr.sh | bash
 
 if [[ $(docker network inspect bridge | grep "EnableIPv6") =~ 'false' ]]
 then
